@@ -9,26 +9,21 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="init()">
+<body onload="renderMeme()">
     <section class="meme-gallery">
-        <h1> Images Gallery</h1>
+        <!-- <h1> Images Gallery</h1> -->
         <button> <img id="1" onclick="pickImageForCanvas(this)" src="img/1.jpg"> </button>
-        <button> <img id="2" onclick="pickImageForCanvas(this)" src="img/2.jpg"> </button>
+        <!-- <button> <img id="2" onclick="pickImageForCanvas(this)" src="img/2.jpg"> </button> -->
     </section>
-
     <section class="meme-editor">
-        <div class="canvas-container"><canvas id="my-canvas"> </canvas> asdf
+        <div class="canvas-container">
+            <canvas id="my-canvas" width="700" height="700" style="outline:1px solid rgb(0, 0, 0)"> </canvas>
+            <input type="text" placeholder="meme me"> <button onclick="onSetLineTxt()"> Meme!</button>
         </div>
     </section>
 
-
-
-
-
-
-
-
     <script src="js/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
 
 </body>
