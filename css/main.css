@@ -1,3 +1,8 @@
-img {
+ /* .meme-gallery {
     display: none;
-}
+} */
+ 
+ .meme-editor {
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     display: block;
+ }

@@ -9,16 +9,19 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="renderMeme()">
+<body onload="renderGallery()">
     <section class="meme-gallery">
-        <!-- <h1> Images Gallery</h1> -->
-        <button> <img id="1" onclick="pickImageForCanvas(this)" src="img/1.jpg"> </button>
-        <!-- <button> <img id="2" onclick="pickImageForCanvas(this)" src="img/2.jpg"> </button> -->
+        <h1> Images Gallery</h1>
     </section>
+
     <section class="meme-editor">
         <div class="canvas-container">
             <canvas id="my-canvas" width="700" height="700" style="outline:1px solid rgb(0, 0, 0)"> </canvas>
             <input type="text" placeholder="meme me"> <button onclick="onSetLineTxt()"> Meme!</button>
+            <input type="color" onchange="onSetColor(this)">Color</input>
+            <input type="color" onchange="onSetColor(this)">Border Color</input>
+            <button id="-" onclick="onChangeFontSize(this)">-</button>
+            <button id="+" onclick="onChangeFontSize(this)">+</button>
         </div>
     </section>
 
