@@ -18,6 +18,6 @@ function renderMeme() {
 
 }
 
-function pickImageForCanvas(ev) {
-    console.log(ev.src)
+function pickImageForCanvas(this) {
+    console.log('hello')
 }
