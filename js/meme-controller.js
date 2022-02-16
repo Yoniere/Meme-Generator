@@ -21,3 +21,5 @@ function renderMeme() {
 function pickImageForCanvas(ev) {
     console.log(ev.src)
 }
+
+asdfasdfasdf
