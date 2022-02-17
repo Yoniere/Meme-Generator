@@ -17,6 +17,7 @@ const memesSentences = [
     'JS what is this?',
     'Write hello world , add to cv 7 years experienced',
 ];
+
 var gCurrLine = -1;
 var gImgs = [{
         id: '1',
@@ -233,4 +234,12 @@ function changeLineLocation(location) {
     } else {
         gMeme.lines[gCurrLine].canvaslocationx = +500;
     }
+}
+
+function getMemesSentences() {
+    return memesSentences;
+}
+
+function updategMeme(val) {
+    gMeme.lines = val
 }

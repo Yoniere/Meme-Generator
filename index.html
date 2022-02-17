@@ -37,14 +37,13 @@
             <button id="+" onclick="onChangeLine(id)"> Up</button>
 
             <div>
-                <input type="color" onchange="onSetColor(this)">Color</input>
-                <input type="color" onchange="onSetColor(this)">Border Color</input>
-                <button id="-" onclick="onChangeFontSize(this)">-</button>
-                <button id="+" onclick="onChangeFontSize(this)">+</button>
-                <button id="left" onclick="onChangeLineLocation(this)">left</button>
-                <button id="center" onclick="onChangeLineLocation(this)">center</button>
-                <button id="right" onclick="onChangeLineLocation(this)">right</button>
-
+                <input type="color" onchange="onSetColor(this.value)">Color</input>
+                <input type="color" onchange="onSetColor(this.value)">Border Color</input>
+                <button id="-" onclick="onChangeFontSize(id)">-</button>
+                <button id="+" onclick="onChangeFontSize(id)">+</button>
+                <button id="left" onclick="onChangeLineLocation(id)">left</button>
+                <button id="center" onclick="onChangeLineLocation(id)">center</button>
+                <button id="right" onclick="onChangeLineLocation(id)">right</button>
             </div>
         </div>
     </section>

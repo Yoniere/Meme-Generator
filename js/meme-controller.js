@@ -17,7 +17,8 @@ function renderMeme() {
     var currline = meme.lines;
     if (currline.length === 0) return;
     meme.lines.forEach(line => {
-        drawText(line.txt, line.canvaslocationx, line.canvaslocationy, line.size, line.color, line.bordercolor);
+        drawText(line.txt, line.canvaslocationx, line.canvaslocationy, line.size, line.color, line.bordercolor)
+        console.log(currline);
     });
     //     drawText(currline[i].txt, 300, 100, currline[i].size, currline[i].color, currline[i].bordercolor);
     // }
@@ -33,23 +34,23 @@ function onSetLineTxt() {
     renderMeme()
 }
 
-function onSetColor(ev) {
-    var color = ev.value
+function onSetColor(color) {
+    // var color = color.value
     console.log(color)
     setColor(color);
     renderMeme();
 }
 
-function onSetBorderColor(ev) {
-    var bordercolor = ev.value
+function onSetBorderColor(color) {
+    var bordercolor = color
     console.log(bordercolor)
     setBorderColor(bordercolor);
     renderMeme();
 }
 
-function onChangeFontSize(ev) {
-    var fontSize = ev.id
-    changeFontSize(fontSize)
+function onChangeFontSize(size) {
+    // var fontSize = ev.id
+    changeFontSize(size)
     renderMeme()
 }
 
@@ -88,9 +89,9 @@ function onChangeLine(id) {
     renderMeme();
 }
 
-function onChangeLineLocation(ev) {
-    console.log(ev.id)
-    changeLineLocation(ev.id)
+function onChangeLineLocation(location) {
+    // console.log(ev.id)
+    changeLineLocation(location)
     renderMeme()
 }
 
