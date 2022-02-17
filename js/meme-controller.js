@@ -3,24 +3,26 @@
 var gCanvas;
 var gCtx;
 
+
 function init() {
     elMemeGallery = document.querySelector('.meme-gallery')
     elMemeGallery.style.display = 'block'
 }
 
-function renderMeme(txt) {
+function renderMeme() {
     var meme = getMeme()
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
-    drawImg(meme.selectedImgId)
-    drawText(txt, 300, 100, meme.lines[0].size, meme.lines[0].color, meme.lines[0].bordercolor)
+    drawImg(meme.selectedImgId);
+    drawText(meme.lines[0].txt, 300, 100, meme.lines[0].size, meme.lines[0].color, meme.lines[0].bordercolor);
+    drawText(meme.lines[1].txt, 300, 600, meme.lines[1].size, meme.lines[1].color, meme.lines[1].bordercolor);
 }
 
 function onSetLineTxt() {
     var elTxt = document.querySelector('input').value;
     setLineTxt(elTxt)
     document.querySelector('input').value = '';
-    renderMeme(elTxt)
+    renderMeme()
 }
 
 function onSetColor(ev) {
@@ -42,6 +44,13 @@ function onChangeFontSize(ev) {
     changeFontSize(fontSize)
     renderMeme()
 }
+
+function onSwitchSentences() {
+    switchSentences(gCurrLine)
+    renderMeme()
+}
+
+
 
 function drawImg(id) {
     var elImg = document.getElementById(id);
