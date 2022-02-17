@@ -6,23 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body onload="renderGallery()">
-    <section class="meme-gallery">
-        <h1> Images Gallery</h1>
+    <header class="main-header main-layout flex space-between align-center">
+        <div class="logo"><img src="img/LOGO.png"></div>
+        <nav>
+            <ul class="main-nav clean-list flex">
+                <li> <a href="#">Gallery </a></li>
+                <li><a href="#">Memes </a></li>
+                <li><a href="#">About </a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- <section class="gallery-page main-layout flex "> -->
+    <section class="meme-gallery main-layout flex">
     </section>
-
-    <section class="meme-editor">
+    <!-- </section> -->
+    <section class="meme-editor main-layout flex">
         <div class="canvas-container">
-            <canvas id="my-canvas" width="700" height="700" style="outline:1px solid rgb(0, 0, 0)"> </canvas>
-            <input type="text" placeholder="meme me"> <button onclick="onSetLineTxt()"> Meme!</button>
-            <input type="color" onchange="onSetColor(this)">Color</input>
-            <input type="color" onchange="onSetColor(this)">Border Color</input>
-            <button id="-" onclick="onChangeFontSize(this)">-</button>
-            <button id="+" onclick="onChangeFontSize(this)">+</button>
+            <canvas id="my-canvas" width="600" height="600" style="outline:1px solid rgb(0, 0, 0)"> </canvas>
+        </div>
+        <div class="flex text-editor">
+            <input class="input-text" type="text" placeholder="meme me"> <button onclick="onSetLineTxt()"> Meme!</button>
             <button onclick="onSwitchSentences()"> Switch</button>
+            <div>
+                <input type="color" onchange="onSetColor(this)">Color</input>
+                <input type="color" onchange="onSetColor(this)">Border Color</input>
+                <button id="-" onclick="onChangeFontSize(this)">-</button>
+                <button id="+" onclick="onChangeFontSize(this)">+</button>
+            </div>
         </div>
     </section>
 

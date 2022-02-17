@@ -1,0 +1,16 @@
+.gallery-images {
+    padding: 0;
+    border: 1px;
+    margin: 1.2rem;
+    /* flex-grow: 1; */
+    flex-basis: 16%;
+    border-radius: 3rem;
+}
+
+.meme-gallery {
+    flex-wrap: wrap;
+}
+
+.gallery-images img {
+    border-radius: 2rem;
+}

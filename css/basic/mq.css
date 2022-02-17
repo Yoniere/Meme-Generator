@@ -1,0 +1,29 @@
+@media (max-width: 1190px) {
+    .gallery-images {
+        flex-basis: 20%;
+    }
+}
+
+@media (max-width: 1030px) {
+    .gallery-images {
+        flex-basis: 25%;
+    }
+    section.meme-gallery {
+        justify-content: center;
+    }
+    /* .meme-editor {
+        flex-direction: column;
+    } */
+}
+
+@media (max-width: 800px) {
+    .gallery-images {
+        flex-basis: 40%;
+    }
+}
+
+@media (max-width: 620px) {
+    .gallery-images {
+        flex-basis: 51%;
+    }
+}

@@ -1,0 +1,26 @@
+.main-header {
+    height: 100px;
+    background-color: var(--clr7);
+    border: var(--clr8), 1px, solid;
+    border-radius: 20rem;
+}
+
+.main-header .logo {
+    width: 200px;
+    padding-inline-start: 5em;
+}
+
+.main-header .main-nav a {
+    text-transform: uppercase;
+    color: inherit;
+    text-decoration: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-end: 5em;
+    color: var(--clr1);
+    font-size: 1.3rem;
+}
+
+.main-header .main-nav a:hover {
+    color: var(--clr2);
+}

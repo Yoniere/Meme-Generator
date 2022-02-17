@@ -70,3 +70,11 @@ function drawText(text, x, y, fontSize, color, bordercolor) {
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
 }
+
+function resizeCanvas() {
+    var elContainer = document.querySelector('.canvas-container')
+        // Note: changing the canvas dimension this way clears the canvas
+    gCanvas.width = elContainer.offsetWidth - 20
+        // Unless needed, better keep height fixed.
+        //   gCanvas.height = elContainer.offsetHeight
+}

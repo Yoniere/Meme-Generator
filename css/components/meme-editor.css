@@ -1,0 +1,34 @@
+.meme-editor {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: none;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    justify-content: center;
+}
+
+.meme-editor .canvas-container {
+    margin-right: 1.2rem;
+    ;
+}
+
+.text-editor {
+    flex-direction: column;
+}
+
+.meme-editor .text-editor>* {
+    margin: 1rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 20rem;
+    border-radius: 2rem;
+    height: 3rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.text-editor .input-text {
+    width: 20rem;
+    border-radius: 2rem;
+    height: 3rem;
+    font-size: 2rem;
+    text-align: center;
+}
