@@ -14,12 +14,20 @@ function renderMeme() {
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
     drawImg(meme.selectedImgId);
-    drawText(meme.lines[0].txt, 300, 100, meme.lines[0].size, meme.lines[0].color, meme.lines[0].bordercolor);
-    drawText(meme.lines[1].txt, 300, 600, meme.lines[1].size, meme.lines[1].color, meme.lines[1].bordercolor);
+    var currline = meme.lines;
+    if (currline.length === 0) return;
+    meme.lines.forEach(line => {
+        drawText(line.txt, 300, 100, line.size, line.color, line.bordercolor);
+    });
+    //     drawText(currline[i].txt, 300, 100, currline[i].size, currline[i].color, currline[i].bordercolor);
+    // }
+    // drawText(meme.lines[1].txt, 300, 600, meme.lines[1].size, meme.lines[1].color, meme.lines[1].bordercolor);
 }
 
 function onSetLineTxt() {
     var elTxt = document.querySelector('input').value;
+    if (!elTxt) return;
+    console.log(elTxt)
     setLineTxt(elTxt)
     document.querySelector('input').value = '';
     renderMeme()
@@ -46,10 +54,14 @@ function onChangeFontSize(ev) {
 }
 
 function onSwitchSentences() {
-    switchSentences(gCurrLine)
+    switchSentences()
     renderMeme()
 }
 
+function onDeleteLine() {
+    deleteLine();
+    renderMeme()
+}
 
 
 function drawImg(id) {
@@ -68,13 +80,20 @@ function drawText(text, x, y, fontSize, color, bordercolor) {
     gCtx.fillStyle = color;
     gCtx.font = `${fontSize}px Impact`;
     gCtx.fillText(text, x, y);
-    gCtx.strokeText(text, x, y);
+    gCtx.strokeText(text, x - 20, y - 20);
 }
 
-function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container')
-        // Note: changing the canvas dimension this way clears the canvas
-    gCanvas.width = elContainer.offsetWidth - 20
-        // Unless needed, better keep height fixed.
-        //   gCanvas.height = elContainer.offsetHeight
-}
+// function onChangeLine(id) {
+//     console.log(id)
+//     changeLine(id);
+// }
+
+
+
+// function resizeCanvas() {
+//     var elContainer = document.querySelector('.canvas-container')
+//         // Note: changing the canvas dimension this way clears the canvas
+//     gCanvas.width = elContainer.offsetWidth - 20
+//         // Unless needed, better keep height fixed.
+//         //   gCanvas.height = elContainer.offsetHeight
+// }

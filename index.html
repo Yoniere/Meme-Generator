@@ -21,6 +21,7 @@
         </nav>
     </header>
     <!-- <section class="gallery-page main-layout flex "> -->
+    <button onclick="onFlexibleClick()">I'm flexible</button>
     <section class="meme-gallery main-layout flex">
     </section>
     <!-- </section> -->
@@ -29,8 +30,12 @@
             <canvas id="my-canvas" width="600" height="600" style="outline:1px solid rgb(0, 0, 0)"> </canvas>
         </div>
         <div class="flex text-editor">
-            <input class="input-text" type="text" placeholder="meme me"> <button onclick="onSetLineTxt()"> Meme!</button>
+            <input class="input-text" type="text" placeholder="meme me"> <button onclick="onSetLineTxt()"> +</button>
             <button onclick="onSwitchSentences()"> Switch</button>
+            <button onclick="onDeleteLine()"> Delete</button>
+            <button id="-" onclick="onChangeLine(id)"> Down</button>
+            <button id="+" onclick="onChangeLine(id)"> Up</button>
+
             <div>
                 <input type="color" onchange="onSetColor(this)">Color</input>
                 <input type="color" onchange="onSetColor(this)">Border Color</input>
@@ -40,9 +45,10 @@
         </div>
     </section>
 
-    <script src="js/meme-service.js "></script>
-    <script src="js/gallery-controller.js "></script>
-    <script src="js/meme-controller.js "></script>
+    <script src="js/utils.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <script src="js/meme-controller.js"></script>
 
 </body>
 

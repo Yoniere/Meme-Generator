@@ -17,7 +17,7 @@ const memesSentences = [
     'JS what is this?',
     'Write hello world , add to cv 7 years experienced',
 ];
-var gCurrLine = 0;
+var gCurrLine = -1;
 var gImgs = [{
         id: '1',
         url: "img/1.jpg",
@@ -111,22 +111,24 @@ var gImgs = [{
 ];
 
 var gMeme = {
-    selectedImgId: "",
+    selectedImgId: '',
     selectedLineIdx: '',
-    lines: [{
-            txt: 'I never eat falafel',
-            size: 20,
-            align: 'left',
-            color: 'white',
-            bordercolor: 'black'
-        },
-        {
-            txt: 'Armed in knowledge',
-            size: 20,
-            align: 'left',
-            color: 'white',
-            bordercolor: 'black'
-        }
+    lines: [
+        // {
+        // txt: '',
+        // size: 20,
+        // align: 'left',
+        // color: 'white',
+        // bordercolor: 'black'
+        // }
+        // ,
+        // {
+        //     txt: 'Armed in knowledge',
+        //     size: 20,
+        //     align: 'left',
+        //     color: 'white',
+        //     bordercolor: 'black'
+        // }
     ]
 }
 
@@ -136,9 +138,33 @@ function getMeme() {
 
 
 function setLineTxt(txt) {
+    gMeme.lines.push({})
+    gCurrLine++
+    // if (gCurrLine < 0) {
+    // console.log('he')
     gMeme.lines[gCurrLine].txt = txt;
-    console.log(gMeme)
+    gMeme.lines[gCurrLine].size = 20;
+    gMeme.lines[gCurrLine].align = 'left';
+    gMeme.lines[gCurrLine].color = 'white';
+    gMeme.lines[gCurrLine].bordercolor = 'white';
+    // gCurrLine = 0;
+    // } else {
+    // gCurrLine++;
+    // gMeme.lines[gCurrLine].txt = txt;
+    // gMeme.lines[gCurrLine].size = 20;
+    // gMeme.lines[gCurrLine].align = 'left';
+    // gMeme.lines[gCurrLine].color = 'white';
+    // gMeme.lines[gCurrLine].bordercolor = 'white';
+    // }
+    console.log(gCurrLine)
 }
+
+// function changeLine(id) {
+//     if (id === '-' && gCurrLine === 0 || id === '+' && gMeme.lines.length === gCurrLine) return;
+//     if (id === '-') gCurrLine--;
+//     if (id === '+') gCurrLine++;
+//     console.log(gCurrLine)
+// }
 
 function getImgs() {
     return gImgs;
@@ -146,7 +172,6 @@ function getImgs() {
 
 function setImage(id) {
     gMeme.selectedImgId = id;
-    console.log(gMeme)
 }
 
 function setColor(color) {
@@ -164,7 +189,18 @@ function changeFontSize(fontChange) {
         else gMeme.lines[gCurrLine].size++
 }
 
+function deleteLine() {
+    gMeme.lines.splice(gCurrLine, 1);
+    gCurrLine--;
+
+}
+
 function switchSentences() {
-    if (gCurrLine === 0) gCurrLine++
-        else gCurrLine--
+    if (gCurrLine < 0) return;
+    if (gCurrLine === gMeme.lines.length - 1) {
+        gCurrLine = 0;
+    } else {
+        gCurrLine++;
+    }
+    console.log(gCurrLine)
 }

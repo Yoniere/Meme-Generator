@@ -11,14 +11,21 @@
     section.meme-gallery {
         justify-content: center;
     }
-    /* .meme-editor {
-        flex-direction: column;
-    } */
+    canvas {
+        width: 500px;
+        height: 500px;
+    }
+    .meme-editor {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 800px) {
     .gallery-images {
         flex-basis: 40%;
+    }
+    .meme-editor {
+        flex-direction: column;
     }
 }
 

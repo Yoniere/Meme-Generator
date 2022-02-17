@@ -12,9 +12,18 @@ function renderGallery() {
 }
 
 function onImageSelect(ev) {
+    console.log(ev)
     setImage(ev.id);
     document.querySelector('.meme-gallery').style.display = 'none'
     document.querySelector('.meme-editor').style.display = 'flex'
     renderMeme()
+}
+
+function onFlexibleClick() {
+    var randImg = getImgs()
+
+    var randnum = getRandomIntInclusive(1, 18)
+    console.log(randImg[randnum].id)
+    onImageSelect(randImg[randnum].id)
 
 }
