@@ -147,24 +147,40 @@ function setLineTxt(txt) {
     gMeme.lines[gCurrLine].align = 'left';
     gMeme.lines[gCurrLine].color = 'white';
     gMeme.lines[gCurrLine].bordercolor = 'white';
-    // gCurrLine = 0;
-    // } else {
-    // gCurrLine++;
-    // gMeme.lines[gCurrLine].txt = txt;
-    // gMeme.lines[gCurrLine].size = 20;
-    // gMeme.lines[gCurrLine].align = 'left';
-    // gMeme.lines[gCurrLine].color = 'white';
-    // gMeme.lines[gCurrLine].bordercolor = 'white';
-    // }
-    console.log(gCurrLine)
+    if (gCurrLine === 0) {
+        gMeme.lines[gCurrLine].canvaslocationx = +300;
+        gMeme.lines[gCurrLine].canvaslocationy = +100;
+    } else if (gCurrLine === 1) {
+        gMeme.lines[gCurrLine].canvaslocationx = +300;
+        gMeme.lines[gCurrLine].canvaslocationy = +500;
+    }
+    console.log(gMeme)
+        // gCurrLine = 0;
+        // } else {
+        // gCurrLine++;
+        // gMeme.lines[gCurrLine].txt = txt;
+        // gMeme.lines[gCurrLine].size = 20;
+        // gMeme.lines[gCurrLine].align = 'left';
+        // gMeme.lines[gCurrLine].color = 'white';
+        // gMeme.lines[gCurrLine].bordercolor = 'white';
+        // }
 }
 
-// function changeLine(id) {
-//     if (id === '-' && gCurrLine === 0 || id === '+' && gMeme.lines.length === gCurrLine) return;
-//     if (id === '-') gCurrLine--;
-//     if (id === '+') gCurrLine++;
-//     console.log(gCurrLine)
-// }
+function changeLine(id) {
+    if (gCurrLine < 0) return;
+    if (id === '+') {
+        if (gMeme.lines[gCurrLine].canvaslocationy > 20) {
+            gMeme.lines[gCurrLine].canvaslocationy -= 10
+
+        }
+    } else {
+        if (gMeme.lines[gCurrLine].canvaslocationy < 580) {
+            gMeme.lines[gCurrLine].canvaslocationy += 10
+        }
+    }
+    console.log(gMeme.lines[gCurrLine].canvaslocationy)
+    return;
+}
 
 function getImgs() {
     return gImgs;
@@ -175,21 +191,25 @@ function setImage(id) {
 }
 
 function setColor(color) {
+    if (gCurrLine < 0) return;
     gMeme.lines[gCurrLine].color = color;
     console.log(gMeme);
 }
 
 function setBorderColor(color) {
+    if (gCurrLine < 0) return;
     gMeme.lines[gCurrLine].bordercolor = color;
     console.log(gMeme);
 }
 
 function changeFontSize(fontChange) {
+    if (gCurrLine < 0) return;
     if (fontChange === "-") gMeme.lines[gCurrLine].size--
         else gMeme.lines[gCurrLine].size++
 }
 
 function deleteLine() {
+    if (gCurrLine < 0) return;
     gMeme.lines.splice(gCurrLine, 1);
     gCurrLine--;
 

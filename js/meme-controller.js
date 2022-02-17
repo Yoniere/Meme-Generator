@@ -17,7 +17,7 @@ function renderMeme() {
     var currline = meme.lines;
     if (currline.length === 0) return;
     meme.lines.forEach(line => {
-        drawText(line.txt, 300, 100, line.size, line.color, line.bordercolor);
+        drawText(line.txt, line.canvaslocationx, line.canvaslocationy, line.size, line.color, line.bordercolor);
     });
     //     drawText(currline[i].txt, 300, 100, currline[i].size, currline[i].color, currline[i].bordercolor);
     // }
@@ -80,13 +80,17 @@ function drawText(text, x, y, fontSize, color, bordercolor) {
     gCtx.fillStyle = color;
     gCtx.font = `${fontSize}px Impact`;
     gCtx.fillText(text, x, y);
-    gCtx.strokeText(text, x - 20, y - 20);
+    gCtx.strokeText(text, x, y);
 }
 
-// function onChangeLine(id) {
-//     console.log(id)
-//     changeLine(id);
-// }
+function onChangeLine(id) {
+    changeLine(id);
+    renderMeme();
+}
+
+function onChangeLineLocation(ev) {
+
+}
 
 
 
