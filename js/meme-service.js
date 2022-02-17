@@ -224,3 +224,13 @@ function switchSentences() {
     }
     console.log(gCurrLine)
 }
+
+function changeLineLocation(location) {
+    if (location === 'left') {
+        gMeme.lines[gCurrLine].canvaslocationx = +100;
+    } else if (location === 'center') {
+        gMeme.lines[gCurrLine].canvaslocationx = +300;
+    } else {
+        gMeme.lines[gCurrLine].canvaslocationx = +500;
+    }
+}

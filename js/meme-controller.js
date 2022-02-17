@@ -80,7 +80,7 @@ function drawText(text, x, y, fontSize, color, bordercolor) {
     gCtx.fillStyle = color;
     gCtx.font = `${fontSize}px Impact`;
     gCtx.fillText(text, x, y);
-    gCtx.strokeText(text, x, y);
+    // gCtx.strokeText(text, x, y);
 }
 
 function onChangeLine(id) {
@@ -89,7 +89,9 @@ function onChangeLine(id) {
 }
 
 function onChangeLineLocation(ev) {
-
+    console.log(ev.id)
+    changeLineLocation(ev.id)
+    renderMeme()
 }
 
 
