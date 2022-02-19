@@ -1,6 +1,6 @@
-* {
+/* * {
     box-sizing: border-box;
-}
+} */
 
 html {
     color: var(--clr1);
@@ -21,4 +21,35 @@ img {
 
 button {
     background-color: transparent;
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: var(--clr9);
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: var(--clr7);
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar {
+    background: var(--clr7);
+}
+
+.small-btn {
+    width: 3.7rem;
+    height: 3.35rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
 }

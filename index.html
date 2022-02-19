@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/d8ab203eac.js" crossorigin="anonymous"></script>
 </head>
 
 <body onload="renderGallery()">
@@ -15,104 +15,104 @@
         <div class="logo"><img src="img/LOGO.png"></div>
         <nav>
             <ul class="main-nav clean-list flex">
-                <li> <a href="#">Gallery </a></li>
-                <li><a href="#">Memes </a></li>
+                <li> <a onclick="openMemesGallery()">Gallery </a></li>
+                <li><a onclick="openMyMemes()" href="#">My Memes </a></li>
                 <li><a href="#">About </a></li>
             </ul>
         </nav>
     </header>
-    <!-- <section class="gallery-page main-layout flex "> -->
-    <button onclick="onFlexibleClick()">I'm flexible</button>
+
+    <div class="main-layout search flex">
+
+        <input type="text" class="meme-type fontAwesome" name="meme-type" id="meme-tag" list="meme-titles" placeholder="Search" onkeyup="filterGallery(this.value)">
+        <datalist id="meme-titles">
+            <option>trump</option>
+            <option>politic</option>
+            <option>funny</option>
+            <option>dog</option>
+            <option>animal</option>
+            <option>cute</option>
+            <option>baby</option>
+            <option>cat</option>
+            <option>ambitious</option>
+        <option>history</option>
+        <option>crazy</option>
+        <option>tv</option>
+        <option>madhatter</option>
+        <option>disney</option>
+        <option>obama</option>
+        <option>boxing</option>
+        <option>weird</option>
+        <option>dicaprio</option>
+        <option>matrix</option>
+        <option>gameofthrones</option>
+        <option>starwar</option>
+        <option>putin</option>
+        <option>toystory</option>
+    </datalist>
+        <span class="keywords-counter"> </span>
+        <button class="btn btn-flexible" onclick="onFlexibleClick()">I'm flexible</button>
+    </div>
     <section class="meme-gallery main-layout flex">
     </section>
-    <!-- </section> -->
+
     <section class="meme-editor main-layout flex">
         <div class="canvas-container">
             <canvas id="my-canvas" width="600" height="600" style="outline:1px solid rgb(0, 0, 0)"> </canvas>
         </div>
         <div class="flex text-editor">
-            <input class="input-text" type="text" placeholder="meme me"> <button onclick="onSetLineTxt()"> +</button>
-            <button onclick="onSwitchSentences()"> Switch</button>
-            <button onclick="onDeleteLine()"> Delete</button>
-            <button id="-" onclick="onChangeLine(id)"> Down</button>
-            <button id="+" onclick="onChangeLine(id)"> Up</button>
-
             <div>
-                <input type="color" onchange="onSetColor(this.value)">Color</input>
-                <input type="color" onchange="onSetColor(this.value)">Border Color</input>
-                <button id="-" onclick="onChangeFontSize(id)">-</button>
-                <button id="+" onclick="onChangeFontSize(id)">+</button>
-                <button id="left" onclick="onChangeLineLocation(id)">left</button>
-                <button id="center" onclick="onChangeLineLocation(id)">center</button>
-                <button id="right" onclick="onChangeLineLocation(id)">right</button>
+                <input class="input-text" type="text" placeholder="meme me">
+                <div>
+                    <button class="small-btn add-line" onclick="onSetLineTxt()"><i class="fa-solid fa-plus"></i></button>
+                    <button class="small-btn switch-line" onclick="onSwitchSentences()"><i class="fa-solid fa-arrow-up-arrow-down"></i></button>
+                    <button class="small-btn remove-line" onclick="onDeleteLine()"><i class="fa-solid fa-trash"></i></button>
+                </div>
+
+                <div class="text-design-area">
+                    <button class="small-btn line-down text-design" onclick="onChangeLine('-')"><i class="fa-solid fa-arrow-down"></i></button>
+                    <button class="small-btn line-up text-design" onclick="onChangeLine('+')"><i class="fa-solid fa-arrow-up"></i></button>
+                    <input class="small-btn text-design" type="color" onchange="onSetColor(this.value)"><i class="fa-solid fa-palette"></i></input>
+                    <input class="small-btn text-design" type="color" onchange="onSetBorderColor(this.value)"><i class="fa-solid fa-border-outer"></i></input>
+                    <button class="small-btn text-design" onclick="onChangeFontSize('-')"><i class="fa-solid fa-font"></i><i class="fa-solid fa-minus"></i></button>
+                    <button class="small-btn text-design" onclick="onChangeFontSize('+')"><i class="fa-solid fa-font"></i><i class="fa-solid fa-plus"></i></button>
+                    <button class="small-btn text-design" onclick="onChangeLineLocation('left')"><i class="fa-solid fa-align-left"></i></button>
+                    <button class="small-btn text-design" onclick="onChangeLineLocation('center')"><i class="fa-solid fa-align-center"></i></button>
+                    <button class="small-btn text-design" onclick="onChangeLineLocation('right')"><i class="fa-solid fa-align-right"></i></button>
+                </div>
+
+                <div class="emoji-area">
+                    <button class="small-btn emoji-btn" onclick="onSetLineEmoji('&#x1F600')">&#x1F600</button>
+                    <button class="small-btn emoji-btn" onclick="onSetLineEmoji('&#x1F601')">&#x1F601</button>
+                    <button class="small-btn emoji-btn" onclick="onSetLineEmoji('&#x1F923')">&#x1F923</button>
+                    <button class="small-btn emoji-btn" onclick="onSetLineEmoji('&#x1F60E')">&#x1F60E</button>
+                    <button class="small-btn emoji-btn" onclick="onSetLineEmoji('&#x1F60D')">&#x1F60D</button>
+                </div>
             </div>
+            </br>
+            <div clas="action-area">
+                <button class="share-container action-btn share" onclick="uploadImg()"><i class="fa-solid fa-share"></i> Share</button>
+                <input type="file" class="file-input btn action-btn" name="image" onchange="onImgInput(event)" placeholder="Upload" />
+                <a href="#" class=" action-btn download" onclick="downloadImg(this)" download="my-img.jpg"><i class="fa-solid fa-download"> Download</i></a>
+                <button class="action-btn favorite" onclick="onSaveToMyMemes()"><i class="fa-solid fa-heart"> Favorite</i></button>
+            </div>
+            <!-- <p class="user-msg"></p> -->
+            <div class="share-container"></div>
+            <div class="share-container2"></div>
         </div>
     </section>
+    <section class="my-memes">
+    </section>
 
+
+    <script src="js/service-storage.js"></script>
     <script src="js/utils.js"></script>
+    <!-- <script src="js/drag&drop.js"></script> -->
     <script src="js/meme-service.js"></script>
     <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
+    <script src="js/my-meme.js"></script>
 
 </body>
 
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body onload="renderGallery()">
-    <header class="main-header main-layout flex space-between align-center">
-        <div class="logo"><img src="img/LOGO.png"></div>
-        <nav>
-            <ul class="main-nav clean-list flex">
-                <li> <a href="#">Gallery </a></li>
-                <li><a href="#">Memes </a></li>
-                <li><a href="#">About </a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- <section class="gallery-page main-layout flex "> -->
-    <button onclick="onFlexibleClick()">I'm flexible</button>
-    <section class="meme-gallery main-layout flex">
-    </section>
-    <!-- </section> -->
-    <section class="meme-editor main-layout flex">
-        <div class="canvas-container">
-            <canvas id="my-canvas" width="600" height="600" style="outline:1px solid rgb(0, 0, 0)"> </canvas>
-        </div>
-        <div class="flex text-editor">
-            <input class="input-text" type="text" placeholder="meme me"> <button onclick="onSetLineTxt()"> +</button>
-            <button onclick="onSwitchSentences()"> Switch</button>
-            <button onclick="onDeleteLine()"> Delete</button>
-            <button id="-" onclick="onChangeLine(id)"> Down</button>
-            <button id="+" onclick="onChangeLine(id)"> Up</button>
-
-            <div>
-                <input type="color" onchange="onSetColor(this.value)">Color</input>
-                <input type="color" onchange="onSetColor(this.value)">Border Color</input>
-                <button id="-" onclick="onChangeFontSize(id)">-</button>
-                <button id="+" onclick="onChangeFontSize(id)">+</button>
-                <button id="left" onclick="onChangeLineLocation(id)">left</button>
-                <button id="center" onclick="onChangeLineLocation(id)">center</button>
-                <button id="right" onclick="onChangeLineLocation(id)">right</button>
-            </div>
-        </div>
-    </section>
-
-    <script src="js/utils.js"></script>
-    <script src="js/meme-service.js"></script>
-    <script src="js/gallery-controller.js"></script>
-    <script src="js/meme-controller.js"></script>
-
-</body>
-
->>>>>>> 8e4675701edcebcb55fd5b69a9c14efcf582f3e9
 </html>

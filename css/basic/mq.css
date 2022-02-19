@@ -1,36 +1,92 @@
-@media (max-width: 1190px) {
-    .gallery-images {
-        flex-basis: 20%;
+    @media (max-width: 1190px) {
+        .gallery-images {
+            flex-basis: 20%;
+        }
+        .meme-editor .canvas-container {
+            margin-right: 1rem;
+        }
     }
-}
-
-@media (max-width: 1030px) {
-    .gallery-images {
-        flex-basis: 25%;
+    
+    @media (max-width: 1190px) {
+        .meme-editor .canvas-container {
+            margin-right: 0rem;
+        }
     }
-    section.meme-gallery {
-        justify-content: center;
+    
+    @media (max-width: 1070px) {
+        .gallery-images {
+            flex-basis: 25%;
+        }
+        section.meme-gallery {
+            justify-content: center;
+        }
+        canvas {
+            width: 500px;
+            height: 500px;
+        }
+        .meme-editor {
+            justify-content: center;
+        }
+        .meme-editor .text-editor>* {
+            margin: 0rem;
+        }
     }
-    canvas {
-        width: 500px;
-        height: 500px;
+    
+    @media (max-width: 950px) {
+        .meme-editor {
+            flex-direction: column;
+            margin-top: 0.5rem;
+        }
+        .text-editor {
+            flex-direction: row;
+        }
+        .small-btn {
+            width: 3.7rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            margin: 0.2rem
+        }
+        .text-design-area {
+            height: 6rem;
+            width: 19rem;
+            margin-bottom: 0rem;
+        }
+        .text-editor .input-text {
+            height: 1.6rem;
+            font-size: 1.3rem;
+        }
+        .main-header {
+            height: 80px;
+        }
+        .meme-editor .canvas-container {
+            align-self: center;
+        }
+        .action-btn {
+            margin-top: 0px;
+            height: 2rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        .small-btn {
+            width: 3rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            margin: 0.1rem;
+            padding: 0rem;
+        }
     }
-    .meme-editor {
-        justify-content: center;
+    
+    @media (max-width: 800px) {
+        .gallery-images {
+            flex-basis: 40%;
+        }
+        .meme-editor {
+            flex-direction: column;
+        }
     }
-}
-
-@media (max-width: 800px) {
-    .gallery-images {
-        flex-basis: 40%;
+    
+    @media (max-width: 620px) {
+        .gallery-images {
+            flex-basis: 51%;
+        }
     }
-    .meme-editor {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 620px) {
-    .gallery-images {
-        flex-basis: 51%;
-    }
-}

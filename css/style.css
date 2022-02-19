@@ -11,6 +11,7 @@
 
 /* COMPONENTS */
 
+@import 'components/my-meme.css';
 @import 'components/main-header.css';
 @import 'components/meme-gallery.css';
 @import 'components/meme-editor.css';

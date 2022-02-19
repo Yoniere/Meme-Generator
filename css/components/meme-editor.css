@@ -1,14 +1,19 @@
 .meme-editor {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: none;
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     justify-content: center;
+    padding-inline-start: 7em;
+    padding-inline-end: 7em;
 }
 
 .meme-editor .canvas-container {
-    margin-right: 1.2rem;
-    ;
+    margin-right: 5rem;
+}
+
+canvas {
+    border-radius: 2rem;
 }
 
 .text-editor {
@@ -16,20 +21,94 @@
 }
 
 .meme-editor .text-editor>* {
-    margin: 1rem;
+    margin: 0.8rem;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    width: 20rem;
-    border-radius: 2rem;
-    height: 3rem;
-    font-size: 2rem;
     text-align: center;
-    color: var(--clr2);
 }
 
 .text-editor .input-text {
-    width: 20rem;
     border-radius: 2rem;
     height: 3rem;
     font-size: 2rem;
     text-align: center;
+}
+
+.input-text:focus {
+    background-color: var(--clr7);
+}
+
+.add-line {
+    background-color: #42EB5C;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.remove-line {
+    background-color: #CF1D37;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.switch-line {
+    background-color: #66C4DC;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.line-down {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.text-design {
+    font-size: 1.5rem;
+    background-color: #FFFFFF;
+    color: #22252C;
+}
+
+.text-design-area {
+    background-color: #19A59F;
+    border: 1px solid #707070;
+    border-radius: 1rem;
+    height: 10rem;
+    width: 27rem;
+}
+
+.emoji-area {
+    background-color: #8076FD;
+    border-radius: 1rem;
+    border: 1px solid #707070;
+    margin-top: 1rem;
+}
+
+.emoji-btn {
+    font-size: 1.5rem;
+}
+
+.action-btn {
+    width: 11rem;
+    height: 2.4rem;
+    border-radius: 1rem;
+    margin-right: 2rem;
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    margin-top: 0.3rem;
+}
+
+.action-btn.share {
+    background-color: #1E7CD3;
+}
+
+.action-btn.download {
+    background-color: #632687;
+    padding: 0.4rem;
+    box-sizing: border-box;
+}
+
+.action-btn.favorite {
+    background-color: #C61AC0;
+}
+
+.action-area {
+    margin-top: -1rem;
 }

@@ -1,5 +1,7 @@
 'use strict'
 
+const STORAGE_KEY_KEYWORDS = 'keywordDB';
+const STORAGE_KEY = 'memesDB'
 const memesSentences = [
     'I never eat falafel',
     'DOMS DOMS EVERYWHERE',
@@ -18,119 +20,110 @@ const memesSentences = [
     'Write hello world , add to cv 7 years experienced',
 ];
 
-var gCurrLine = -1;
+var gMyMemes;
 var gImgs = [{
         id: '1',
         url: "img/1.jpg",
-        keywords: []
+        keywords: ['trump', 'politic', 'funny']
     },
     {
         id: '2',
         url: "img/2.jpg",
-        keywords: []
+        keywords: ['dog', 'animal', 'cute']
     },
     {
         id: '3',
         url: "img/3.jpg",
-        keywords: []
+        keywords: ['dog', 'cute', 'animal', 'baby']
     },
     {
         id: '4',
         url: "img/4.jpg",
-        keywords: []
+        keywords: ['cat', 'animal', 'cute', 'funny']
     },
     {
         id: '5',
         url: "img/5.jpg",
-        keywords: []
+        keywords: ['baby', 'cute', 'funny', 'ambitious']
     },
     {
         id: '6',
         url: "img/6.jpg",
-        keywords: []
+        keywords: ['history', 'crazy', 'funny', 'tv']
     },
     {
         id: '7',
         url: "img/7.jpg",
-        keywords: []
+        keywords: ['baby', 'funny', 'cute']
     },
     {
         id: '8',
         url: "img/8.jpg",
-        keywords: []
+        keywords: ['madhatter', 'disney', 'tv']
     },
     {
         id: '9',
         url: "img/9.jpg",
-        keywords: []
+        keywords: ['baby', 'cute', 'funny']
     },
     {
         id: '10',
         url: "img/10.jpg",
-        keywords: []
+        keywords: ['obama', 'politic']
     },
     {
         id: '11',
         url: "img/11.jpg",
-        keywords: []
+        keywords: ['boxing', 'weird']
     },
     {
         id: '12',
         url: "img/12.jpg",
-        keywords: []
+        keywords: ['funny', 'tv']
     },
     {
         id: '13',
         url: "img/13.jpg",
-        keywords: []
+        keywords: ['dicaprio', 'tv']
     },
     {
         id: '14',
         url: "img/14.jpg",
-        keywords: []
+        keywords: ['matrix', 'tv']
     },
     {
         id: '15',
         url: "img/15.jpg",
-        keywords: []
+        keywords: ['tv', 'gameofthrones']
     },
     {
         id: '16',
         url: "img/16.jpg",
-        keywords: []
+        keywords: ['tv', 'starwar']
     },
     {
         id: '17',
         url: "img/17.jpg",
-        keywords: []
+        keywords: ['putin', 'politic']
     },
     {
         id: '18',
         url: "img/18.jpg",
-        keywords: []
+        keywords: ['toystory', 'tv', 'disney']
     }
 ];
 
 var gMeme = {
     selectedImgId: '',
     selectedLineIdx: '',
-    lines: [
-        // {
-        // txt: '',
-        // size: 20,
-        // align: 'left',
-        // color: 'white',
-        // bordercolor: 'black'
-        // }
-        // ,
-        // {
-        //     txt: 'Armed in knowledge',
-        //     size: 20,
-        //     align: 'left',
-        //     color: 'white',
-        //     bordercolor: 'black'
-        // }
-    ]
+    lines: []
+}
+
+var gKeywords = {
+    funny: 10,
+    animal: 5,
+    tv: 3,
+    baby: 12
 }
 
 function getMeme() {
@@ -140,46 +133,38 @@ function getMeme() {
 
 function setLineTxt(txt) {
     gMeme.lines.push({})
-    gCurrLine++
-    // if (gCurrLine < 0) {
-    // console.log('he')
-    gMeme.lines[gCurrLine].txt = txt;
-    gMeme.lines[gCurrLine].size = 20;
-    gMeme.lines[gCurrLine].align = 'left';
-    gMeme.lines[gCurrLine].color = 'white';
-    gMeme.lines[gCurrLine].bordercolor = 'white';
-    if (gCurrLine === 0) {
-        gMeme.lines[gCurrLine].canvaslocationx = +300;
-        gMeme.lines[gCurrLine].canvaslocationy = +100;
-    } else if (gCurrLine === 1) {
-        gMeme.lines[gCurrLine].canvaslocationx = +300;
-        gMeme.lines[gCurrLine].canvaslocationy = +500;
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+    var idxLine = gMeme.selectedLineIdx
+    gMeme.lines[idxLine].txt = txt;
+    gMeme.lines[idxLine].size = 20;
+    gMeme.lines[idxLine].align = 'left';
+    gMeme.lines[idxLine].color = 'white';
+    gMeme.lines[idxLine].bordercolor = 'white';
+    if (idxLine === 0) {
+        gMeme.lines[idxLine].canvaslocationx = +300;
+        gMeme.lines[idxLine].canvaslocationy = +100;
+    } else if (idxLine === 1) {
+        gMeme.lines[idxLine].canvaslocationx = +300;
+        gMeme.lines[idxLine].canvaslocationy = +500;
+    } else {
+        gMeme.lines[idxLine].canvaslocationx = +300;
+        gMeme.lines[idxLine].canvaslocationy = ((gMeme.lines[idxLine - 1].canvaslocationy + gMeme.lines[idxLine - 2].canvaslocationy) / 2)
+
     }
-    console.log(gMeme)
-        // gCurrLine = 0;
-        // } else {
-        // gCurrLine++;
-        // gMeme.lines[gCurrLine].txt = txt;
-        // gMeme.lines[gCurrLine].size = 20;
-        // gMeme.lines[gCurrLine].align = 'left';
-        // gMeme.lines[gCurrLine].color = 'white';
-        // gMeme.lines[gCurrLine].bordercolor = 'white';
-        // }
 }
 
 function changeLine(id) {
-    if (gCurrLine < 0) return;
+    if (gMeme.selectedLineIdx === '') return;
     if (id === '+') {
-        if (gMeme.lines[gCurrLine].canvaslocationy > 20) {
-            gMeme.lines[gCurrLine].canvaslocationy -= 10
+        if (gMeme.lines[gMeme.selectedLineIdx].canvaslocationy > 20) {
+            gMeme.lines[gMeme.selectedLineIdx].canvaslocationy -= 10
 
         }
     } else {
-        if (gMeme.lines[gCurrLine].canvaslocationy < 580) {
-            gMeme.lines[gCurrLine].canvaslocationy += 10
+        if (gMeme.lines[gMeme.selectedLineIdx].canvaslocationy < 580) {
+            gMeme.lines[gMeme.selectedLineIdx].canvaslocationy += 10
         }
     }
-    console.log(gMeme.lines[gCurrLine].canvaslocationy)
     return;
 }
 
@@ -192,47 +177,50 @@ function setImage(id) {
 }
 
 function setColor(color) {
-    if (gCurrLine < 0) return;
-    gMeme.lines[gCurrLine].color = color;
-    console.log(gMeme);
+    if (gMeme.selectedLineIdx === '') return;
+    gMeme.lines[gMeme.selectedLineIdx].color = color;
 }
 
 function setBorderColor(color) {
-    if (gCurrLine < 0) return;
-    gMeme.lines[gCurrLine].bordercolor = color;
-    console.log(gMeme);
+    if (gMeme.selectedLineIdx === '') return;
+    gMeme.lines[gMeme.selectedLineIdx].bordercolor = color;
 }
 
 function changeFontSize(fontChange) {
-    if (gCurrLine < 0) return;
-    if (fontChange === "-") gMeme.lines[gCurrLine].size--
-        else gMeme.lines[gCurrLine].size++
+    if (gMeme.selectedLineIdx === '') return;
+    if (fontChange === "-") gMeme.lines[gMeme.selectedLineIdx].size--
+        else gMeme.lines[gMeme.selectedLineIdx].size++
 }
 
 function deleteLine() {
-    if (gCurrLine < 0) return;
-    gMeme.lines.splice(gCurrLine, 1);
-    gCurrLine--;
+    if (gMeme.selectedLineIdx === '') return;
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
 
+    if (gMeme.selectedLineIdx === 0) {
+        console.log('he')
+        gMeme.selectedLineIdx = '';
+    } else {
+        gMeme.selectedLineIdx--;
+    }
 }
 
 function switchSentences() {
-    if (gCurrLine < 0) return;
-    if (gCurrLine === gMeme.lines.length - 1) {
-        gCurrLine = 0;
+    if (gMeme.selectedLineIdx === '') return;
+    if (gMeme.selectedLineIdx === gMeme.lines.length - 1) {
+        gMeme.selectedLineIdx = 0;
     } else {
-        gCurrLine++;
+        gMeme.selectedLineIdx++;
     }
-    console.log(gCurrLine)
+    console.log(gMeme.selectedLineIdx)
 }
 
 function changeLineLocation(location) {
     if (location === 'left') {
-        gMeme.lines[gCurrLine].canvaslocationx = +100;
+        gMeme.lines[gMeme.selectedLineIdx].canvaslocationx = +100;
     } else if (location === 'center') {
-        gMeme.lines[gCurrLine].canvaslocationx = +300;
+        gMeme.lines[gMeme.selectedLineIdx].canvaslocationx = +300;
     } else {
-        gMeme.lines[gCurrLine].canvaslocationx = +500;
+        gMeme.lines[gMeme.selectedLineIdx].canvaslocationx = +500;
     }
 }
 
@@ -243,3 +231,110 @@ function getMemesSentences() {
 function updategMeme(val) {
     gMeme.lines = val
 }
+
+function saveToMyMemes() {
+    _saveMemesToStorage()
+}
+
+function _saveMemesToStorage() {
+    gMyMemes = loadFromStorage(STORAGE_KEY)
+    if (!gMyMemes || gMyMemes.length === 0) {
+        gMyMemes = [];
+    }
+    gMyMemes.push(gMeme);
+    saveToStorage(STORAGE_KEY, gMyMemes)
+}
+
+function setLineEmoji(emoji) {
+    gMeme.lines.push({})
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+    var idxLine = gMeme.selectedLineIdx
+    gMeme.lines[idxLine].txt = emoji;
+    gMeme.lines[idxLine].size = 20;
+    gMeme.lines[idxLine].align = 'left';
+    gMeme.lines[idxLine].color = 'white';
+    gMeme.lines[idxLine].bordercolor = 'white';
+    if (idxLine === 0) {
+        gMeme.lines[idxLine].canvaslocationx = +300;
+        gMeme.lines[idxLine].canvaslocationy = +100;
+    } else if (idxLine === 1) {
+        gMeme.lines[idxLine].canvaslocationx = +300;
+        gMeme.lines[idxLine].canvaslocationy = +500;
+    } else {
+        gMeme.lines[idxLine].canvaslocationx = +300;
+        gMeme.lines[idxLine].canvaslocationy = ((gMeme.lines[idxLine - 1].canvaslocationy + gMeme.lines[idxLine - 2].canvaslocationy) / 2)
+    }
+}
+
+
+function doUploadImg(imgDataUrl, onSuccess) {
+
+    const formData = new FormData();
+    formData.append('img', imgDataUrl)
+
+    fetch('//ca-upload.com/here/upload.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then((url) => {
+            console.log('Got back live url:', url);
+            onSuccess(url)
+        })
+        .catch((err) => {
+            console.error(err)
+        })
+}
+
+function resetgMeme() {
+    gMeme = {
+        selectedImgId: '',
+        selectedLineIdx: '',
+        lines: []
+    }
+
+}
+
+function saveToMyKeywords() {
+    _saveKeywordsToStorage()
+}
+
+function _saveKeywordsToStorage() {
+    if (!gKeywords) {
+        gKeywords = {};
+    }
+    saveToStorage(STORAGE_KEY_KEYWORDS, gKeywords)
+}
+
+function getgKeywords() {
+    gKeywords = loadFromStorage(STORAGE_KEY_KEYWORDS)
+    if (!gKeywords) {
+        gKeywords = {};
+    }
+    return gKeywords;
+}
+
+function saveTogKeyword(keyword) {
+    gKeywords = keyword;
+    _saveKeywordsToStorage()
+}
+
+// function setLineDrag(isDrag) {
+//     console.log(gMeme.isDrag)
+//     gMeme.isDrag = isDrag
+//     console.log(gMeme.isDrag)
+// }
+
+
+// function moveLine(dx, dy) {
+//     gMeme.pos.x += dx
+//     gMeme.pos.y += dy
+
+// }
+
+// function isLineClicked(clickedPos) {
+//     const { pos } = gMeme
+//     console.log(pos)
+//     const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
+//     return distance <= gMeme.size
+// }
