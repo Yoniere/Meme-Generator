@@ -5,17 +5,16 @@
         .meme-editor .canvas-container {
             margin-right: 1rem;
         }
-    }
-    
-    @media (max-width: 1190px) {
         .meme-editor .canvas-container {
-            margin-right: 0rem;
+            margin-right: 1rem;
         }
     }
     
-    @media (max-width: 1070px) {
+    @media (max-width: 1110px) {
         .gallery-images {
-            flex-basis: 25%;
+            flex-basis: 24%;
+            margin-left: 2rem;
+            margin-right: 2rem;
         }
         section.meme-gallery {
             justify-content: center;
@@ -30,15 +29,22 @@
         .meme-editor .text-editor>* {
             margin: 0rem;
         }
+        .main-header .main-nav a {
+            padding-inline-end: 2rem;
+        }
+        .main-header .logo {
+            width: 200px;
+            padding-inline-start: 3rem;
+        }
     }
     
-    @media (max-width: 950px) {
-        .meme-editor {
+    @media (max-width: 970px) {
+        /* .meme-editor {
             flex-direction: column;
             margin-top: 0.5rem;
-        }
+} */
         .text-editor {
-            flex-direction: row;
+            /* flex-direction: row; */
         }
         .small-btn {
             width: 3.7rem;
@@ -76,17 +82,155 @@
         }
     }
     
+    @media (max-width: 915px) {
+        .gallery-images {
+            flex-basis: 23%;
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+        .gallery-images img {
+            border-radius: 1rem;
+        }
+        .keywords-counter {
+            width: 24rem;
+        }
+        .main-header .main-nav a {
+            padding-inline-end: 1rem;
+        }
+        .main-header .logo {
+            width: 200px;
+            padding-inline-start: 2rem;
+        }
+    }
+    
+    @media (max-width: 850px) {
+        .gallery-images {
+            flex-basis: 22%;
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+        .keywords-counter {
+            width: 20rem;
+        }
+        .main-header .main-nav a {
+            padding-inline-end: 0.5em;
+        }
+        canvas {
+            width: 450px;
+            height: 450px;
+        }
+    }
+    
     @media (max-width: 800px) {
         .gallery-images {
-            flex-basis: 40%;
+            flex-basis: 21%;
         }
         .meme-editor {
             flex-direction: column;
         }
+        .flex.space-between {
+            justify-content: center;
+            ;
+        }
+        .main-header .logo {
+            width: 200px;
+            padding-inline-start: 1rem;
+        }
+        .logo img {
+            width: 80%;
+        }
+        .main-header .main-nav a {
+            font-size: 1rem;
+        }
+        .action-btn {
+            font-size: 0.5rem;
+            width: 3rem;
+        }
     }
     
-    @media (max-width: 620px) {
+    @media (max-width: 745px) {
         .gallery-images {
-            flex-basis: 51%;
+            flex-basis: 20%;
+        }
+        .meme-editor {
+            flex-direction: column;
+        }
+        .keywords-counter {
+            width: 17rem;
+        }
+    }
+    
+    @media (max-width: 710px) {
+        .gallery-images {
+            flex-basis: 18%;
+        }
+        .meme-editor {
+            flex-direction: column;
+        }
+        .keywords-counter {
+            width: 13rem;
+        }
+        .main-header .main-nav a {
+            font-size: 0.9rem;
+        }
+    }
+    
+    @media (max-width: 650px) {
+        .gallery-images {
+            flex-basis: 17%;
+        }
+        .meme-editor {
+            flex-direction: column;
+        }
+        .logo img {
+            width: 66%;
+        }
+        .main-header .main-nav a {
+            font-size: 0.7rem;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .gallery-images {
+            flex-basis: 14%;
+        }
+        .logo img {
+            width: 55%;
+        }
+        .main-header .main-nav a {
+            font-size: 0.5rem;
+        }
+    }
+    
+    @media (max-width: 550px) {
+        .gallery-images {
+            flex-basis: 12%;
+        }
+        .gallery-images img {
+            border-radius: 0.5rem;
+        }
+        .logo img {
+            width: 55%;
+        }
+        .main-header .main-nav a {
+            font-size: 0.5rem;
+        }
+        .logo img {
+            width: 50%;
+        }
+        .main-header .main-nav a {
+            font-size: 0.5rem;
+        }
+    }
+    
+    @media (max-width: 515px) {
+        .gallery-images {
+            flex-basis: 9%;
+        }
+    }
+    
+    @media (max-width: 475px) {
+        .gallery-images {
+            flex-basis: 8%;
         }
     }
